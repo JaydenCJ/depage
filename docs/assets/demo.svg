@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="380" viewBox="0 0 760 380" font-family="Menlo, Consolas, monospace" font-size="14">
+  <rect width="760" height="380" rx="10" fill="#101418"/>
+  <circle cx="24" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="64" cy="22" r="6" fill="#27c93f"/>
+  <text x="380" y="27" fill="#8b949e" text-anchor="middle" font-size="12">depage — every page of any paginated JSON API, as one NDJSON stream</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="64"><tspan fill="#7ee787">$</tspan> depage 'https://api.example.test/v1/users?limit=100' &gt; users.ndjson</text>
+    <text x="24" y="88" fill="#8b949e">depage: style=cursor (via body field /next_cursor), pages=42, items=4117</text>
+    <text x="24" y="126"><tspan fill="#7ee787">$</tspan> head -3 users.ndjson</text>
+    <text x="24" y="150">{"id":<tspan fill="#79c0ff">1</tspan>,"name":<tspan fill="#a5d6ff">"user-01"</tspan>,"team":<tspan fill="#a5d6ff">"atlas"</tspan>}</text>
+    <text x="24" y="172">{"id":<tspan fill="#79c0ff">2</tspan>,"name":<tspan fill="#a5d6ff">"user-02"</tspan>,"team":<tspan fill="#a5d6ff">"borealis"</tspan>}</text>
+    <text x="24" y="194">{"id":<tspan fill="#79c0ff">3</tspan>,"name":<tspan fill="#a5d6ff">"user-03"</tspan>,"team":<tspan fill="#a5d6ff">"cascade"</tspan>}</text>
+    <text x="24" y="232"><tspan fill="#7ee787">$</tspan> depage -v 'https://api.example.test/v1/orders?page=1' | jq .total</text>
+    <text x="24" y="256" fill="#8b949e">depage: detected style=<tspan fill="#d2a8ff">page</tspan> via query parameter ?page=</text>
+    <text x="24" y="278" fill="#8b949e">depage: items found at <tspan fill="#79c0ff">/results</tspan> (50 on the first page)</text>
+    <text x="24" y="300" fill="#8b949e">depage: page 1: 50 item(s) … page 2: 50 item(s) … page 3: 17 item(s)</text>
+    <text x="24" y="338"><tspan fill="#7ee787">$</tspan> depage --style link-header 'https://api.example.test/repos?page=1'</text>
+    <text x="24" y="362" fill="#8b949e">depage: style=<tspan fill="#d2a8ff">link-header</tspan> (via Link header rel="next"), pages=9, items=832</text>
+  </g>
+</svg>
